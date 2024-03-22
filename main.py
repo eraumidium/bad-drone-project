@@ -12,10 +12,10 @@ detection_enabled = False
 # Load YOLOv5n6 and MiDaS models
 model_yolo = torch.hub.load('ultralytics/yolov5', 'yolov5n6', pretrained=True) # Used to identify objects
 model_depth = torch.hub.load("intel-isl/MiDaS", "MiDaS") # Used to predict distance to objects
-midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms")
+midas_transforms = torch.hub.load("intel-isl/MiDaS", "transforms") # 
 
 # Initialize depth estimation model
-device = torch.device("cuda")
+device = torch.device("cuda") # Attempt to use NVIDIA CUDA for taxing depth estimation model
 model_depth.to(device)
 model_depth.eval()
 
