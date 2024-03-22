@@ -43,23 +43,22 @@ def main():
 
         drone.takeoff()
         detection_enabled = True
-        drone.move_forward(500)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(125)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(250)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(125)
-        # drone.rotate_clockwise(90)
-        # drone.move_up(75)
-        # drone.move_forward(250)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(125)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(250)
-        # drone.rotate_clockwise(90)
-        # drone.move_forward(125)
-        # drone.rotate_clockwise(90)
+        drone.rotate_clockwise(90)
+        drone.move_forward(125)
+        drone.rotate_clockwise(90)
+        drone.move_forward(250)
+        drone.rotate_clockwise(90)
+        drone.move_forward(125)
+        drone.rotate_clockwise(90)
+        drone.move_up(75)
+        drone.move_forward(250)
+        drone.rotate_clockwise(90)
+        drone.move_forward(125)
+        drone.rotate_clockwise(90)
+        drone.move_forward(250)
+        drone.rotate_clockwise(90)
+        drone.move_forward(125)
+        drone.rotate_clockwise(90)
         drone.land()
 
         recording = False
@@ -92,7 +91,6 @@ def streamVideo():
         img = copy.deepcopy(frame_read.frame)
         img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
-        # Assuming `img_rgb` is the original image in the correct format
         input_batch = midas_transforms.default_transform(img_rgb)
         
         # Predict depth
@@ -135,8 +133,8 @@ def streamVideo():
                     drone.move_right(50)
                     drone.land()
 
-        # if recording:
-        #     img = cv2.putText(img, 'RECORDING', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+        if recording:
+            img = cv2.putText(img, 'RECORDING', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
         cv2.imshow('Live View', img)
         cv2.waitKey(1)
